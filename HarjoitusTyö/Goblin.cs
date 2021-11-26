@@ -6,11 +6,13 @@ namespace HarjoitusTyö
 {
     class Goblin : Enemy
     {
-        Random EnemyDmg = new Random();
-        public Goblin()
+        
+        public Goblin(int GoblinHP)
         {
-            EnemyHealth = 10;
-            EnemyDamage = EnemyDmg.Next (0, 2);
+            Random GoblinDmg = new Random();
+
+            EnemyHealth = GoblinHP = 10;
+            EnemyDamage = GoblinDmg.Next(0, 2);
         }
     }
 }

@@ -11,8 +11,7 @@ namespace HarjoitusTyö
         public Enemy() { }
         public Enemy(int EnemyHP, int EnemyDmg)
         {
-            EnemyHealth = EnemyHP;
-            EnemyDamage = EnemyDmg;
+
         }
         
     }
