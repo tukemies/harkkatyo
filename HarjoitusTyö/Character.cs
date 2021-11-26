@@ -6,20 +6,25 @@ namespace HarjoitusTyö
 {
     class Character
     {
-        public int playerHealth;
-        public int playerDamage;
-        public enum attackTypes
-        {
-            Light,
-            Heavy
-        }
+        public int PlayerHealth;
+        public int PlayerDamage;
+        public string PlayerName;
+        public int PlayerLevel;
+        
+       
 
         public Character() {}
 
+        public string SetPlayerName()
+        {
+            PlayerName = Console.ReadLine();
+            return PlayerName;
+        }
+
         public Character(int playerHP, int playerDmg) 
         {
-            playerHealth = playerHP;
-            playerDamage = playerDmg;
+            PlayerHealth = playerHP;
+            PlayerDamage = playerDmg;
         }
     }
 }
