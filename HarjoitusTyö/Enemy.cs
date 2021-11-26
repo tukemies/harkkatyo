@@ -6,5 +6,6 @@ namespace HarjoitusTyö
 {
     class Enemy
     {
+        public int EnemyHealth;
     }
 }
