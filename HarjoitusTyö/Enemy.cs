@@ -8,12 +8,10 @@ namespace HarjoitusTyö
     {
         public int EnemyHealth;
         public int EnemyDamage;
-        public int EnemyStats(int EnemyHP, int EnemyDmg)
+        public Enemy() { }
+        public Enemy(int EnemyHP, int EnemyDmg)
         {
-            EnemyHealth = EnemyHP;
-            EnemyDamage = EnemyDmg;
-            return EnemyHP;
-            return EnemyDmg;
+
         }
         
     }

@@ -6,13 +6,13 @@ namespace HarjoitusTyö
 {
     class Dragon : Enemy
     {
-        Random EnemyDmg = new Random();
-
-        public Dragon()
-        {
-            EnemyHealth = 100;
-            EnemyDamage = EnemyDmg.Next(0, 20);
-        }
         
+        public Dragon(int DragonHP)
+        {
+            Random DragonDmg = new Random();
+
+            EnemyHealth = DragonHP = 100;
+            EnemyDamage = DragonDmg.Next(0, 20);
+        }
     }
 }
