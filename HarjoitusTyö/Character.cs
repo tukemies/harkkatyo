@@ -21,10 +21,11 @@ namespace HarjoitusTyö
             return PlayerName;
         }
 
-        public Character(int playerHP, int playerDmg) 
+        public Character(int playerHP, int playerDmg, int playerLvl) 
         {
             PlayerHealth = playerHP;
             PlayerDamage = playerDmg;
+            PlayerLevel = playerLvl;
         }
     }
 }
