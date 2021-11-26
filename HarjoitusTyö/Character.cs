@@ -7,6 +7,7 @@ namespace HarjoitusTyö
     class Character
     {
         public int playerHealth;
+        public int playerDamage;
         public enum attackTypes
         {
             Light,
@@ -15,9 +16,10 @@ namespace HarjoitusTyö
 
         public Character() {}
 
-        public Character(int nplayerHealth) 
-        { 
-            
+        public Character(int playerHP, int playerDmg) 
+        {
+            playerHealth = playerHP;
+            playerDamage = playerDmg;
         }
     }
 }
