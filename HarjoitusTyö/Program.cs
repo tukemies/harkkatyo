@@ -6,6 +6,8 @@ namespace HarjoitusTyö
     {
         static void Main(string[] args)
         {
+            Enemy Goblin = new Enemy();
+
             Console.WriteLine($"Goblin's health is {}");
             Console.WriteLine("Insert your name.");
             Character player = new Character(10, 2, 1);

@@ -6,7 +6,7 @@ namespace HarjoitusTyö
 {
     class Goblin : Enemy
     {
-        
+        public Goblin() { }
         public Goblin(int GoblinHP)
         {
             Random GoblinDmg = new Random();
