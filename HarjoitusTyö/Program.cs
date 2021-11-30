@@ -4,17 +4,23 @@ namespace HarjoitusTyö
 {
     class Program
     {
+
+
         static void Main(string[] args)
         {
-            Enemy Goblin = new Enemy();
-
-            Console.WriteLine($"Goblin's health is {}");
-            Console.WriteLine("Insert your name.");
+            bool InCombat = false;
             Character player = new Character(10, 2, 1);
-            player.SetPlayerName();
-            Console.WriteLine($"Your name is {player.PlayerName}");
-            Console.WriteLine($"Here is your health: {player.PlayerHealth.ToString()}, and here is your damage {player.PlayerDamage.ToString()}. You're currently level {player.PlayerLevel.ToString()}");
 
+            Console.WriteLine("Insert your name.");
+            player.SetPlayerName();
+            Console.WriteLine($"{player.PlayerName}'s stats: \nHP: {player.PlayerHealth.ToString()} \nDAMAGE: {player.PlayerDamageBase.ToString()} \nLevel {player.PlayerLevel.ToString()}");
+
+
+            while(InCombat == true)
+            {
+
+            }
+            
         }
     }
 }

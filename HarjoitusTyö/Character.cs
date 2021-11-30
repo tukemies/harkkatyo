@@ -7,11 +7,17 @@ namespace HarjoitusTyö
     class Character
     {
         public int PlayerHealth;
-        public int PlayerDamage;
+        public int PlayerDamageBase;
         public string PlayerName;
         public int PlayerLevel;
-        
-       
+        Random rng = new Random();
+
+       public enum AttackTypes
+        {
+            LightAttack,
+            HeavyAttack
+        }
+
 
         public Character() {}
 
@@ -21,10 +27,10 @@ namespace HarjoitusTyö
             return PlayerName;
         }
 
-        public Character(int playerHP, int playerDmg, int playerLvl) 
+        public Character(int playerHP, int playerDmgB, int playerLvl) 
         {
             PlayerHealth = playerHP;
-            PlayerDamage = playerDmg;
+            PlayerDamageBase = playerDmgB;
             PlayerLevel = playerLvl;
         }
     }

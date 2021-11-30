@@ -4,10 +4,13 @@ using System.Text;
 
 namespace HarjoitusTyö
 {
-    class Enemy
+    abstract class Enemy
     {
         public int EnemyHealth;
         public int EnemyDamage;
-        
+        public string EnemyName;
+
+        public abstract void SetStats(int EnemyHP, int EnemyDMG, string eName);
+
     }
 }
