@@ -14,8 +14,8 @@ namespace HarjoitusTyö
 
         public string GetStats()
         {
-            string stats = ($"{EnemyName}\nHP:{EnemyHealth}\nDamage: {EnemyDamage}");
-            return;
+            string stats = ($"{EnemyName}\nHP:{EnemyHealth.ToString()}\nDamage: {EnemyDamage.ToString()}");
+            return stats;
         }
 
     }
