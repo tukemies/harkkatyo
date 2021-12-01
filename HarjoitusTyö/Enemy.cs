@@ -12,5 +12,11 @@ namespace HarjoitusTyö
 
         public abstract void SetStats(int EnemyHP, int EnemyDMG, string eName);
 
+        public string GetStats()
+        {
+            string stats = ($"{EnemyName}\nHP:{EnemyHealth}\nDamage: {EnemyDamage}");
+            return;
+        }
+
     }
 }

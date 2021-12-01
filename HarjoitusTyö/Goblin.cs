@@ -7,12 +7,12 @@ namespace HarjoitusTyö
     class Goblin : Enemy
     {
         public Goblin() { }
-        public Goblin(int GoblinHP)
-        {
-            Random GoblinDmg = new Random();
 
-            EnemyHealth = GoblinHP = 10;
-            EnemyDamage = GoblinDmg.Next(0, 2);
+        public override void SetStats(int EnemyHP, int EnemyDMG, string eName)
+        {
+            EnemyHealth = EnemyHP;
+            EnemyDamage = EnemyDMG;
+            EnemyName = eName;
         }
     }
 }
