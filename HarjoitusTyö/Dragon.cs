@@ -6,13 +6,13 @@ namespace HarjoitusTyö
 {
     class Dragon : Enemy
     {
+        public Dragon() { }
         
-        public Dragon(int DragonHP)
+        public override void SetStats(int EnemyHP, int EnemyDMG, string eName)
         {
-            Random DragonDmg = new Random();
-
-            EnemyHealth = DragonHP = 100;
-            EnemyDamage = DragonDmg.Next(0, 20);
+            EnemyHealth = EnemyHP;
+            EnemyDamage = EnemyDMG;
+            EnemyName = eName;
         }
     }
 }

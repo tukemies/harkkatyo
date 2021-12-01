@@ -10,7 +10,7 @@ namespace HarjoitusTyö
         public int PlayerDamageBase;
         public string PlayerName;
         public int PlayerLevel;
-        Random rng = new Random();
+
 
        public enum AttackTypes
         {

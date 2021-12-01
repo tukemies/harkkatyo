@@ -6,13 +6,13 @@ namespace HarjoitusTyö
 {
     class Bear : Enemy
     {
+        public Bear() { }
         
-         public Bear( int BearHP)
+        public override void SetStats(int EnemyHP, int EnemyDMG, string eName)
         {
-            Random BearDmg = new Random();
-
-            EnemyHealth = BearHP = 20;
-            EnemyDamage = BearDmg.Next(0, 7);
+            EnemyHealth = EnemyHP;
+            EnemyDamage = EnemyDMG;
+            EnemyName = eName;
         }
     }
 }
