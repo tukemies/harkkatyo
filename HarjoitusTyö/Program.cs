@@ -14,6 +14,9 @@ namespace HarjoitusTyö
             Character player = new Character(10, 2, 1);
             Goblin goblin = new Goblin(10, 2);
 
+            Attack lAttack = new Attack();
+            Attack hAttack = new Attack();
+
             Console.WriteLine("Insert your character's name:");
             player.SetPlayerName();
 
