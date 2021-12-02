@@ -112,7 +112,7 @@ namespace HarjoitusTyö
                     {
                         Console.WriteLine($"Congratulations! {player.PlayerName} has defeated {goblin.EnemyName}, his family will probably miss him.");
                         player.PlayerLevel = 2;
-                        Console.WriteLine("");
+                        Console.WriteLine($"{player.PlayerName} is now level {player.PlayerLevel}");
                     }
                     if (player.PlayerHealth <= 0)
                     {
