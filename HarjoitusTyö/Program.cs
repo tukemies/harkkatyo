@@ -14,10 +14,7 @@ namespace HarjoitusTyö
             Character player = new Character(10, 2, 1);
             Goblin goblin = new Goblin(10, 2);
 
-            Attack lAttack = new Attack();
-            Attack hAttack = new Attack();
-
-            Console.WriteLine("Insert your name.");
+            Console.WriteLine("Insert your character's name:");
             player.SetPlayerName();
 
             Console.Clear();
@@ -26,7 +23,7 @@ namespace HarjoitusTyö
 
             while (InCombat == false)
             {
-                Console.WriteLine("What do you want to do?\n1. Fight\n2. Leave");
+                Console.WriteLine($"What does {player.PlayerName} want to do?\n1. Fight\n2. Leave");
                 string PlayerInput = Console.ReadLine();
                 if (PlayerInput.Equals("1"))
                 {
@@ -34,17 +31,20 @@ namespace HarjoitusTyö
                 }
                 else if (PlayerInput.Equals("2"))
                 {
-                    Console.WriteLine("You try to leave, but there is nowhere to run.");
+                    Console.WriteLine($"{player.PlayerName} tries to leave, but there is nowhere to run.");
                 }
                 else
                 {
-                    Console.WriteLine("You forgot what you were supposed to do.");
+                    Console.WriteLine($"{player.PlayerName} forgot what he was supposed to do.");
                 }
             }
 
             while(InCombat == true)
             {
-                Console.WriteLine($"Goblin's stats are {goblin.GetStats()}");
+                Console.WriteLine($"Goblin's stats are {goblin.GetStats()}\n");
+                Console.WriteLine($"{player.PlayerName}'s stats:\nHP: {player.PlayerHealth.ToString()} \nDAMAGE: {player.PlayerDamageBase.ToString()} \nLevel {player.PlayerLevel.ToString()}\n");
+                Console.WriteLine($"What should {player.PlayerName} do?\n1. Light Attack\n2. Heavy Attack");
+                string PlayerInput = Console.ReadLine();
             }
         }
     }
