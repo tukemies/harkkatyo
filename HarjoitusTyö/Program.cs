@@ -13,7 +13,6 @@ namespace HarjoitusTyö
             Random rnd = new Random();
             Character player = new Character(10, 2, 1);
             Goblin goblin = new Goblin(10, 2);
-            Console.WriteLine($"Goblin's stats are {goblin.GetStats()}");
 
             Console.WriteLine("Insert your name.");
             player.SetPlayerName();
