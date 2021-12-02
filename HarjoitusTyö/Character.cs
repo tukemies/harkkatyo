@@ -23,8 +23,8 @@ namespace HarjoitusTyö
 
         public Character(int playerHP, int playerDmg, int playerLvl) 
         {
-            PlayerHealth = playerHP;
-            PlayerDamage = playerDmg;
+            PlayerHealth = playerHP * playerLvl;
+            PlayerDamage = playerDmg * playerLvl;
             PlayerLevel = playerLvl;
         }
 

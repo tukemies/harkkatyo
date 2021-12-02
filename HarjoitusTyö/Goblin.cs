@@ -6,10 +6,11 @@ namespace HarjoitusTyö
 {
     class Goblin : Enemy
     {
-        public Goblin(int EnemyHp, int EnemyDMG)
+        public Goblin(int EnemyHp, int EnemyDMG, string eName)
         {
             EnemyHealth = EnemyHp;
             EnemyDamage = EnemyDMG;
+            EnemyName = eName;
         }
 
         public override void SetStats(int EnemyHP, int EnemyDMG, string eName)
