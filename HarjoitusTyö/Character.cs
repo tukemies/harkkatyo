@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HarjoitusTyö
 {
-    class Character
+    class Character : IAction
     {
         public int PlayerHealth;
         public int PlayerDamageBase;
@@ -25,6 +25,11 @@ namespace HarjoitusTyö
         {
             PlayerName = Console.ReadLine();
             return PlayerName;
+        }
+
+        public void Action(Character lAttack, Character hAttack)
+        {
+            
         }
 
         public Character(int playerHP, int playerDmgB, int playerLvl) 
