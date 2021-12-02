@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HarjoitusTyö
 {
-    class Character
+    class Character : Attack
     {
         public int PlayerHealth;
         public int PlayerDamageBase;

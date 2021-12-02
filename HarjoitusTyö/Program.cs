@@ -48,6 +48,12 @@ namespace HarjoitusTyö
                 Console.WriteLine($"{player.PlayerName}'s stats:\nHP: {player.PlayerHealth.ToString()} \nDAMAGE: {player.PlayerDamageBase.ToString()} \nLevel {player.PlayerLevel.ToString()}\n");
                 Console.WriteLine($"What should {player.PlayerName} do?\n1. Light Attack\n2. Heavy Attack");
                 string PlayerInput = Console.ReadLine();
+
+                if(PlayerInput.Equals("1"))
+                {
+
+                }
+
             }
         }
     }
