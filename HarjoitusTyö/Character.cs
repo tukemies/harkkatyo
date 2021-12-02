@@ -4,21 +4,12 @@ using System.Text;
 
 namespace HarjoitusTyö
 {
-    class Character : Attack
+    class Character
     {
         public int PlayerHealth;
-        public int PlayerDamageBase;
+        public int PlayerDamage;
         public string PlayerName;
         public int PlayerLevel;
-
-
-       public enum AttackTypes
-        {
-            LightAttack,
-            HeavyAttack
-        }
-
-
 
         public Character() {}
 
@@ -30,30 +21,13 @@ namespace HarjoitusTyö
 
 
 
-        public Character(int playerHP, int playerDmgB, int playerLvl) 
+        public Character(int playerHP, int playerDmg, int playerLvl) 
         {
             PlayerHealth = playerHP;
-            PlayerDamageBase = playerDmgB;
+            PlayerDamage = playerDmg;
             PlayerLevel = playerLvl;
         }
 
 
-    }
-    public class Attack : IAction
-    {
-        public string AttackType;
-
-        public void Action(Attack lAttack, Attack hAttack)
-        {
-            if (AttackType == "Light")
-            {
-                Console.WriteLine("You attacked enemy for 2 damage!");
-            }
-            if (AttackType == "Heavy")
-            {
-                Console.WriteLine("You attacked enemy for 4 damage!");
-            }
-
-        }
     }
 }
