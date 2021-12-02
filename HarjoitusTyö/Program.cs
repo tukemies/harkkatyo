@@ -71,50 +71,55 @@ namespace HarjoitusTyö
 
                 while (InCombat == true && goblin.EnemyHealth > 0)
                 {
-                    Console.WriteLine($"Goblin's HP: {goblin.EnemyHealth}/10\n");
-                    Console.WriteLine($"{player.PlayerName}'s stats:\nHP: {player.PlayerHealth.ToString()}/10 \n");
-                    Console.WriteLine($"What should {player.PlayerName} do?\n1. Light Attack (Hit for default damage, can't miss)" +
-                        $"\n2. Heavy Attack (Can hit up to 3x damage, with a chance to miss.)");
-                    string PlayerInput = Console.ReadLine();
-
-                    if (PlayerInput.Equals("1"))
+                    int EnemyChoice = 1;
+                    switch (EnemyChoice)
                     {
-                        int LightDamage = rnd.Next(1, 3);
-                        goblin.EnemyHealth -= LightDamage;
-                        Console.Clear();
-                        Console.WriteLine($"You hit for {LightDamage.ToString()} damage.");
-                    }
-                    else if (PlayerInput.Equals("2"))
-                    {
-                        int HitChance = rnd.Next(1, 21);
-                        int HeavyDamage = rnd.Next(4, 7);
+                        case 1:
+                            Console.WriteLine($"Goblin's HP: {goblin.EnemyHealth}/10\n");
+                            Console.WriteLine($"{player.PlayerName}'s stats:\nHP: {player.PlayerHealth.ToString()}/10 \n");
+                            Console.WriteLine($"What should {player.PlayerName} do?\n1. Light Attack (Hit for default damage, can't miss)" +
+                                $"\n2. Heavy Attack (Can hit up to 3x damage, with a chance to miss.)");
+                            string PlayerInput = Console.ReadLine();
 
-                        if (HitChance > 12)
-                        {
-                            goblin.EnemyHealth -= HeavyDamage;
-                            Console.Clear();
-                            Console.WriteLine($"You hit for {HeavyDamage.ToString()} damage.");
-                        }
-                        else
-                        {
-                            Console.Clear();
-                            Console.WriteLine("You swing wildly and missed.");
-                        }
-                    }
-                    player.PlayerHealth -= goblin.EnemyDamage;
-                    Console.WriteLine($"Goblin hit you for {goblin.EnemyDamage} damage.");
+                            if (PlayerInput.Equals("1"))
+                            {
+                                int LightDamage = rnd.Next(1, 3);
+                                goblin.EnemyHealth -= LightDamage;
+                                Console.Clear();
+                                Console.WriteLine($"You hit for {LightDamage.ToString()} damage.");
+                            }
+                            else if (PlayerInput.Equals("2"))
+                            {
+                                int HitChance = rnd.Next(1, 21);
+                                int HeavyDamage = rnd.Next(4, 7);
 
-                    if (goblin.EnemyHealth <= 0)
-                    {
-                        Console.WriteLine("Congratulations! You have defeated Bob the goblin, his family will probably miss him.");
-                    }
-                    if (player.PlayerHealth <= 0)
-                    {
-                        InCombat = false;
-                        Console.WriteLine("Game over! You have died, how tragic.");
-                        Playing = false;
-                    }
+                                if (HitChance > 12)
+                                {
+                                    goblin.EnemyHealth -= HeavyDamage;
+                                    Console.Clear();
+                                    Console.WriteLine($"You hit for {HeavyDamage.ToString()} damage.");
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("You swing wildly and missed.");
+                                }
+                            }
+                            player.PlayerHealth -= goblin.EnemyDamage;
+                            Console.WriteLine($"Goblin hit you for {goblin.EnemyDamage} damage.");
 
+                            if (goblin.EnemyHealth <= 0)
+                            {
+                                Console.WriteLine("Congratulations! You have defeated Bob the goblin, his family will probably miss him.");
+                            }
+                            if (player.PlayerHealth <= 0)
+                            {
+                                InCombat = false;
+                                Console.WriteLine("Game over! You have died, how tragic.");
+                                Playing = false;
+                            }
+                            break;
+                    }
                 }
 
             }
