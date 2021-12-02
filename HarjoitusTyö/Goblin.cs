@@ -6,7 +6,11 @@ namespace HarjoitusTyö
 {
     class Goblin : Enemy
     {
-        public Goblin() { }
+        public Goblin(int EnemyHp, int EnemyDMG)
+        {
+            EnemyHealth = EnemyHp;
+            EnemyDamage = EnemyDMG;
+        }
 
         public override void SetStats(int EnemyHP, int EnemyDMG, string eName)
         {
@@ -14,5 +18,12 @@ namespace HarjoitusTyö
             EnemyDamage = EnemyDMG;
             EnemyName = eName;
         }
+
+        public override string GetStats()
+        {
+            string stats = ($"{EnemyName}\nHP:{EnemyHealth.ToString()}\nDamage: {EnemyDamage.ToString()}");
+            return stats;
+        }
+
     }
 }
