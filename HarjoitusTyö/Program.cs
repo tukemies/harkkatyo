@@ -71,58 +71,85 @@ namespace HarjoitusTyö
                     }
                 }
 
-                while (InCombat == true && goblin.EnemyHealth > 0)
+                while (InCombat == true)
                 {
-                     Console.WriteLine($"{goblin.EnemyName}'s HP: {goblin.EnemyHealth}/10\n");
-                     Console.WriteLine($"{player.PlayerName}'s stats:\nHP: {player.PlayerHealth.ToString()}/10 \n");
-                     Console.WriteLine($"What should {player.PlayerName} do?\n1. Light Attack (Hit for default damage, can't miss)" +
-                                       $"\n2. Heavy Attack (Can hit up to 3x damage, with a chance to miss.)");
-
-                    string PlayerInput = Console.ReadLine();
-
-                    if (PlayerInput.Equals("1"))
+                    while (goblin.EnemyHealth > 0 && player.PlayerHealth > 0)
                     {
-                        int LightDamage = rnd.Next(1, player.PlayerDamage);
-                        goblin.EnemyHealth -= LightDamage;
-                        Console.Clear();
-                        Console.WriteLine($"{player.PlayerName} hit for {LightDamage.ToString()} damage.");
-                    }
-                    else if (PlayerInput.Equals("2"))
-                    {
-                        int HitChance = rnd.Next(1, 21);
-                        int HeavyDamage = player.PlayerDamage * 2;
+                        Console.WriteLine($"{goblin.EnemyName}'s HP: {goblin.EnemyHealth}/10\n");
+                        Console.WriteLine($"{player.PlayerName}'s stats:\nHP: {player.PlayerHealth.ToString()}/10 \n");
+                        Console.WriteLine($"What should {player.PlayerName} do?\n1. Light Attack (Hit for default damage, can't miss)" +
+                                          $"\n2. Heavy Attack (Can hit up to 3x damage, with a chance to miss.)");
 
-                        if (HitChance > 12)
+                        string PlayerInput = Console.ReadLine();
+
+                        if (PlayerInput.Equals("1"))
                         {
-                            goblin.EnemyHealth -= HeavyDamage;
+                            int LightDamage = rnd.Next(1, player.PlayerDamage);
+                            goblin.EnemyHealth -= LightDamage;
                             Console.Clear();
-                            Console.WriteLine($"{player.PlayerName} hits for {HeavyDamage.ToString()} damage.");
+                            Console.WriteLine($"{player.PlayerName} hit for {LightDamage.ToString()} damage.");
                         }
-                        else
+                        else if (PlayerInput.Equals("2"))
                         {
-                            Console.Clear();
-                            Console.WriteLine($"{player.PlayerName} swings wildly and misses.");
+                            int HitChance = rnd.Next(1, 21);
+                            int HeavyDamage = player.PlayerDamage * 2;
+
+                            if (HitChance > 12)
+                            {
+                                goblin.EnemyHealth -= HeavyDamage;
+                                Console.Clear();
+                                Console.WriteLine($"{player.PlayerName} hits for {HeavyDamage.ToString()} damage.");
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine($"{player.PlayerName} swings wildly and misses.");
+                            }
+                        }
+
+                        player.PlayerHealth -= goblin.EnemyDamage;
+                        Console.WriteLine($"{goblin.EnemyName} hit {player.PlayerName} for {goblin.EnemyDamage} damage.");
+
+                        if (goblin.EnemyHealth <= 0)
+                        {
+                            Console.WriteLine($"Congratulations! {player.PlayerName} has defeated {goblin.EnemyName}, his family will probably miss him.");
+                            player.PlayerLevel = 2;
+                            Console.WriteLine($"{player.PlayerName} is now level {player.PlayerLevel}");
+                            player.PlayerHealth = 20;
+                            player.PlayerDamage = 4;
+                            InCombat = false;
+                        }
+                        else if (player.PlayerHealth <= 0)
+                        {
+                            Console.WriteLine($"Game over! {player.PlayerName} has died, how tragic.");
+                            InCombat = false;
+                            Playing = false;
+                        }
+
+                    }
+
+                    while (player.PlayerHealth > 0 && InCombat == false)
+                    {
+                        Console.WriteLine("Do you wish to keep going? Y/N");
+                        string UserInput = Console.ReadLine();
+                        if (UserInput.Trim().ToLower().Equals("y"))
+                        {
+                            InCombat = true;
+                        }
+                        else if (UserInput.Trim().ToLower().Equals("n"))
+                        {
+                            Console.WriteLine("Good game!");
+                            Playing = false;
+                            break;
                         }
                     }
 
-                    player.PlayerHealth -= goblin.EnemyDamage;
-                    Console.WriteLine($"{goblin.EnemyName} hit {player.PlayerName} for {goblin.EnemyDamage} damage.");
-
-                    if (goblin.EnemyHealth <= 0)
+                    while (InCombat == true && Playing == true && player.PlayerHealth > 0)
                     {
-                        Console.WriteLine($"Congratulations! {player.PlayerName} has defeated {goblin.EnemyName}, his family will probably miss him.");
-                        player.PlayerLevel = 2;
-                        Console.WriteLine($"{player.PlayerName} is now level {player.PlayerLevel}");
+                        Console.WriteLine("A honey addicted bear walks in.\nYou raise your fists.");
+                        Console.ReadLine();
                     }
-                    if (player.PlayerHealth <= 0)
-                    {
-                        InCombat = false;
-                        Console.WriteLine($"Game over! {player.PlayerName} has died, how tragic.");
-                        Playing = false;
-                    }
-                    
                 }
-
             }
 
         }
