@@ -178,25 +178,25 @@ namespace HarjoitusTyö
                                 Console.Clear();
                                 Console.WriteLine($"{player.PlayerName} swings wildly and misses.");
                             }
+                        }
 
-                            player.PlayerHealth -= bear.EnemyDamage;
-                            Console.WriteLine($"{bear.EnemyName} hit {player.PlayerName} for {bear.EnemyDamage} damage.");
+                        player.PlayerHealth -= bear.EnemyDamage;
+                        Console.WriteLine($"{bear.EnemyName} hit {player.PlayerName} for {bear.EnemyDamage} damage.");
 
-                            if (bear.EnemyHealth <= 0)
-                            {
-                                Console.WriteLine($"Congratulations! {player.PlayerName} beat the snot out of {bear.EnemyName}, hope you're ready to break the news to Piglet.");
-                                player.PlayerLevel = 2;
-                                Console.WriteLine($"{player.PlayerName} is now level {player.PlayerLevel}");
-                                player.PlayerHealth = 20;
-                                player.PlayerDamage = 4;
-                                InCombat = false;
-                            }
-                            else if (player.PlayerHealth <= 0)
-                            {
-                                Console.WriteLine($"Game over! {player.PlayerName} has died, how tragic.");
-                                InCombat = false;
-                                Playing = false;
-                            }
+                        if (bear.EnemyHealth <= 0)
+                        {
+                            Console.WriteLine($"Congratulations! {player.PlayerName} beat the snot out of {bear.EnemyName}, hope you're ready to break the news to Piglet.");
+                            player.PlayerLevel = 2;
+                            Console.WriteLine($"{player.PlayerName} is now level {player.PlayerLevel}");
+                            player.PlayerHealth = 20;
+                            player.PlayerDamage = 4;
+                            InCombat = false;
+                        }
+                        else if (player.PlayerHealth <= 0)
+                        {
+                            Console.WriteLine($"Game over! {player.PlayerName} has died, how tragic.");
+                            InCombat = false;
+                            Playing = false;
                         }
                     }
                 }
