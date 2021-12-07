@@ -6,10 +6,11 @@ namespace HarjoitusTyö
 {
     class Bear : Enemy
     {
-        public Bear(int EnemyHp, int EnemyDMG)
+        public Bear(int EnemyHp, int EnemyDMG, string eName)
         {
             EnemyHealth = EnemyHp;
             EnemyDamage = EnemyDMG;
+            EnemyName = eName;
         }
 
         public override void SetStats(int EnemyHP, int EnemyDMG, string eName)
