@@ -146,8 +146,8 @@ namespace HarjoitusTyö
 
                     while (InCombat == true && Playing == true && player.PlayerHealth > 0)
                     {
-                        Console.WriteLine("A honey addicted bear walks in.\nYou raise your fists.");
-                        Console.ReadLine();
+                        Console.WriteLine($"A honey addicted bear walks in.\n{player.PlayerName} raises their fists.");
+                        
                     }
                 }
             }
