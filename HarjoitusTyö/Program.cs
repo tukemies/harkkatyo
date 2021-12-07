@@ -1,11 +1,9 @@
 ﻿using System;
-
+//Authors: Tuukka Tenhunen & Tomi Oksman
 namespace HarjoitusTyö
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             bool InCombat = false;

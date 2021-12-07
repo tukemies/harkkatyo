@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+//Author: Tomi Oksman
 namespace HarjoitusTyö
 {
     abstract class Enemy

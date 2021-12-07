@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
+//Author: Tomi Oksman
 namespace HarjoitusTyö
 {
     class Goblin : Enemy
     {
-        public Goblin(int EnemyHp, int EnemyDMG, string eName)
+        public Goblin(int EnemyHP, int EnemyDMG, string eName)
         {
-            EnemyHealth = EnemyHp;
+            EnemyHealth = EnemyHP;
             EnemyDamage = EnemyDMG;
             EnemyName = eName;
         }

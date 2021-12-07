@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+//Author: Tuukka Tenhunen
 namespace HarjoitusTyö
 {
     class Character
@@ -21,9 +22,9 @@ namespace HarjoitusTyö
 
 
 
-        public Character(int playerHP, int playerDmg, int playerLvl) 
+        public Character(int playerHp, int playerDmg, int playerLvl) 
         {
-            PlayerHealth = playerHP;
+            PlayerHealth = playerHp;
             PlayerDamage = playerDmg;
             PlayerLevel = playerLvl;
         }

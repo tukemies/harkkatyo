@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
+//Author: Tomi Oskamn
 namespace HarjoitusTyö
 {
     class Dragon : Enemy
     {
-        public Dragon(int EnemyHp, int EnemyDMG, string eName)
+        public Dragon(int EnemyHP, int EnemyDMG, string eName)
         {
-            EnemyHealth = EnemyHp;
+            EnemyHealth = EnemyHP;
             EnemyDamage = EnemyDMG;
             EnemyName = eName;
         }
