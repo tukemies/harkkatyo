@@ -13,6 +13,7 @@ namespace HarjoitusTyö
             Random rnd = new Random();
             Character player = new Character(10, 3, 1);
             Goblin goblin = new Goblin(10, 2, "Bob the Goblin");
+            Bear bear = new Bear(20, 5, "Pooh the Bear");
 
             while (Playing == false)
             {
@@ -135,6 +136,9 @@ namespace HarjoitusTyö
                         if (UserInput.Trim().ToLower().Equals("y"))
                         {
                             InCombat = true;
+                            Console.Clear();
+                            Console.WriteLine($"A honey addicted bear walks in.\n{player.PlayerName} raises their fists.\n");
+                            Console.WriteLine(bear.GetStats());
                         }
                         else if (UserInput.Trim().ToLower().Equals("n"))
                         {
@@ -144,10 +148,56 @@ namespace HarjoitusTyö
                         }
                     }
 
-                    while (InCombat == true && Playing == true && player.PlayerHealth > 0)
+                    while (InCombat == true && Playing == true)
                     {
-                        Console.WriteLine($"A honey addicted bear walks in.\n{player.PlayerName} raises their fists.");
-                        
+                        Console.WriteLine($"{bear.EnemyName}'s HP:{bear.EnemyHealth.ToString()}/20\n");
+                        Console.WriteLine($"{player.PlayerName}'s HP:{player.PlayerHealth.ToString()}/20");
+                        Console.WriteLine($"What should {player.PlayerName} do?\n1. Light Attack (Max Damage: 4)\n2. Heavy Attack (Max Damage: 12)");
+                        string PlayerInput = Console.ReadLine();
+
+                        if (PlayerInput.Equals("1"))
+                        {
+                            int LightDamage = rnd.Next(1, player.PlayerDamage+1);
+                            bear.EnemyHealth -= LightDamage;
+                            Console.Clear();
+                            Console.WriteLine($"{player.PlayerName} hit for {LightDamage.ToString()} damage.");
+                        }
+                        else if (PlayerInput.Equals("2"))
+                        {
+                            int HitChance = rnd.Next(1, 21);
+                            int HeavyDamage = player.PlayerDamage * 3;
+
+                            if (HitChance > 12)
+                            {
+                                bear.EnemyHealth -= HeavyDamage;
+                                Console.Clear();
+                                Console.WriteLine($"{player.PlayerName} hits for {HeavyDamage.ToString()} damage.");
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine($"{player.PlayerName} swings wildly and misses.");
+                            }
+
+                            player.PlayerHealth -= bear.EnemyDamage;
+                            Console.WriteLine($"{bear.EnemyName} hit {player.PlayerName} for {bear.EnemyDamage} damage.");
+
+                            if (bear.EnemyHealth <= 0)
+                            {
+                                Console.WriteLine($"Congratulations! {player.PlayerName} beat the snot out of {bear.EnemyName}, hope you're ready to break the news to Piglet.");
+                                player.PlayerLevel = 2;
+                                Console.WriteLine($"{player.PlayerName} is now level {player.PlayerLevel}");
+                                player.PlayerHealth = 20;
+                                player.PlayerDamage = 4;
+                                InCombat = false;
+                            }
+                            else if (player.PlayerHealth <= 0)
+                            {
+                                Console.WriteLine($"Game over! {player.PlayerName} has died, how tragic.");
+                                InCombat = false;
+                                Playing = false;
+                            }
+                        }
                     }
                 }
             }
